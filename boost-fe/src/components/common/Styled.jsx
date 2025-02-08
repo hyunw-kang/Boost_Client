@@ -12,6 +12,7 @@ export const HeadContainer = styled.div`
     z-index: 1000;
     padding-bottom: 10px;
 `
+
 export const ButtonContainer = styled.div`
     width : 100%;
     display : flex;
