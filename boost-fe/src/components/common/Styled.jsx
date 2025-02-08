@@ -17,7 +17,7 @@ export const ButtonContainer = styled.div`
     display : flex;
     justify-content: center;
     background-color : #ffffff;
-    positionL relative;
+    position: relative;
     margin-top: 5px;
 `
 
