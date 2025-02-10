@@ -1,9 +1,31 @@
-import React ,{useState,useEffect} from "react";
+import React ,{useState} from "react";
 import Header from "../components/common/Header";
 import * as S from "../components/group/styled";
 
-const MakeGroupppage =() => {
+console.log(S.GroupContainer);
+console.log(S.Title);
+console.log(S.ToggleContainer);
+
+const MakeGroupPage =() => {
+    const [tags, setTags] = useState([]);
+    const [inputValue, setInputValue] = useState("");
     const [isPublic, setIsPublic] = useState(true);
+
+    const addTag = (event) => {
+        if (event.key === "Enter" && inputValue.trim() !== "") {
+          if (!tags.includes(inputValue.trim())) {
+            setTags([...tags, inputValue.trim()]);
+          }
+          setInputValue("");
+        }
+      };
+    
+      const removeTag = (tagToRemove) => {
+        setTags(tags.filter((tag) => tag !== tagToRemove));
+      };
+    
+    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = {
@@ -12,6 +34,7 @@ const MakeGroupppage =() => {
           isPublic,
           /*password,
           selectedFile,*/
+          tags,
         };
         console.log("Form Data:", formData);
       };
@@ -32,6 +55,21 @@ const MakeGroupppage =() => {
                     <span></span>
                     </S.ToggleSwitch>
                 </S.ToggleContainer>
+                <S.TagContainer>
+                    {tags.map((tag, index) => (
+                        <S.Tag key={index}>
+                            {tag}
+                             <S.RemoveButton onClick={() => removeTag(tag)}>×</S.RemoveButton>
+                        </S.Tag>
+                    ))}
+                    <S.TagInput
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyDown={addTag}
+                        placeholder="태그 입력 후 Enter"
+                    />
+                </S.TagContainer>
                 <S.SubmitButton onClick={handleSubmit}>만들기</S.SubmitButton>
             </S.GroupContainer>
         </>
@@ -39,4 +77,4 @@ const MakeGroupppage =() => {
     )
 }
 
-export default MakeGroupppage;
+export default MakeGroupPage;
