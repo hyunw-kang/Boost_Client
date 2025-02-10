@@ -94,3 +94,43 @@ export const ToggleSwitch = styled.label`
     transform: translateX(20px);
   }
 `
+
+export const TagContainer = styled.div`
+  display : flex;
+  flex-wrap : wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+`
+export const Tag = styled.div`
+  background-color: #e0e0e0;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3a3a3a;
+    color: white;
+  }
+`
+export const TagInput = styled.input`
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  background: transparent;
+  flex-grow: 1;
+  color : black;
+`
+export const RemoveButton = styled.span`
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: bold;
+`

@@ -1,11 +1,14 @@
 import React from 'react';
 import { createBrowserRouter,Navigate } from 'react-router-dom';
 import Detailpage  from './pages/Detailpage';
-import MakeGroutppage from './pages/MakeGrouppage';
+import MakeGroupPage from './pages/MakeGrouppage';
+
+
 
 const router = createBrowserRouter([
     { path : "/detail", element: <Detailpage/>},
-    { path : "/makegroup", element: <MakeGroutppage/>},
+    { path : "/makegroup", element : <MakeGroupPage/>},
+
 ]);
 
 export default router;
